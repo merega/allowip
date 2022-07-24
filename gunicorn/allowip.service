@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve allowip
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/srv/allowip
+Environment="PATH=/srv/allowip/venv/bin"
+ExecStart=/srv/allowip/venv/bin/gunicorn --workers 3 --bind unix:/run/allowip.sock -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
