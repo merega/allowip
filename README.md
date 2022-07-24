@@ -10,6 +10,8 @@
 
 **Настройка авторизации**
 
+Требует настройки nginx на просмотр внутренних адресов (на серый IP)
+
 *apt install apache2-utils*
 
 *htpasswd -c /etc/nginx/.htpasswd user1*
