@@ -13,7 +13,7 @@ def showip():
     file.close()
     hstnm = subprocess.check_output("/usr/bin/hostname")
     #return(data.split(";"))
-    return render_template('showip.html', data=data.split(";"), hstnm = hstnm.decode("utf-8"))
+    return render_template('showip.html', data=data.split(";"), hstnm = hstnm.decode("utf-8"), allow_file = allow_file)
 
 
 @app.route('/addip')
