@@ -17,10 +17,10 @@
 *htpasswd -c /etc/nginx/.htpasswd user1*
 
 *server {\
-    ...
+    ...\
     auth_basic "Restricted Area";\
     auth_basic_user_file /etc/nginx/.htpasswd;\
-    ...
+    ...\
 }*
 
 **Настройка сервисов**
@@ -35,4 +35,8 @@
 
 - Модифицировать и подложить: nginx/allowip
 в /etc/nginx/sites-available и не забыть сделать симлинк
+
+З.Ы. При работе через сокет двоит добавляемые адреса и работает крайне нестабильно\
+(тут не разобрался)\
+Потому рекомендована настройка через TCP/IP
 
