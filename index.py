@@ -27,9 +27,11 @@ def addip():
         ipadr = request.form['address']
         with open(allow_file, 'r') as f:
             old_data = f.read()
-        new_data = old_data.replace('deny all;', 'allow {ipadr};\ndeny all;'.format(ipadr = ipadr))
-        with open(allow_file, 'w') as f:
-            f.write(new_data)
+        
+        if (ipadr not in old_data):
+            new_data = old_data.replace('deny all;', 'allow {ipadr};\ndeny all;'.format(ipadr = ipadr))
+            with open(allow_file, 'w') as f:
+                f.write(new_data)
         ngnx = os.system('/usr/sbin/nginx -t')
         if ngnx != 0:
             with open(allow_file, 'w') as f:
