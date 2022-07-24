@@ -25,11 +25,14 @@
 
 **Настройка сервисов**
 
-- Установить gunicorn *pip install gunicorn*
+- Установить: python3-venv
+- Создать venv в текущей директории: *python -m venv venv*
+- Установить gunicorn: *pip install gunicorn*
+- Установить Flask: *pip install flask*
 
-- Модифицировать и подложить gunicorn/allowip.service
+- Модифицировать и подложить: gunicorn/allowip.service
 в /etc/systemd/system
 
-- Модифицировать и подложить nginx/allowip
+- Модифицировать и подложить: nginx/allowip
 в /etc/nginx/sites-available и не забыть сделать симлинк
 
