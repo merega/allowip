@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-import subprocess, settings
+import subprocess, settings, os
 
 
 app = Flask(__name__)
@@ -30,7 +30,12 @@ def addip():
         new_data = old_data.replace('deny all;', 'allow {ipadr};\ndeny all;'.format(ipadr = ipadr))
         with open(allow_file, 'w') as f:
             f.write(new_data)
-
+        ngnx = os.system('nginx -t')
+        if ngnx != 0:
+            with open(allow_file, 'w') as f:
+                f.write(old_data)
+        os.system('service nginx restart')
+        
         return render_template('added.html', ipadr=ipadr)
 
 
