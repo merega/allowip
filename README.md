@@ -20,3 +20,14 @@
     auth_basic_user_file /etc/nginx/.htpasswd;\
     ...
 }*
+
+**Настройка сервисов**
+
+- Установить gunicorn *pip install gunicorn*
+
+- Модифицировать и подложить gunicorn/allowip.service
+в /etc/systemd/system
+
+- Модифицировать и подложить nginx/allowip
+в /etc/nginx/sites-available и не забыть сделать симлинк
+

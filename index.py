@@ -27,7 +27,6 @@ def addip():
         ipadr = request.form['address']
         with open(allow_file, 'r') as f:
             old_data = f.read()
-        
         if (ipadr not in old_data):
             new_data = old_data.replace('deny all;', 'allow {ipadr};\ndeny all;'.format(ipadr = ipadr))
             with open(allow_file, 'w') as f:
