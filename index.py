@@ -34,7 +34,8 @@ def addip():
         if ngnx != 0:
             with open(allow_file, 'w') as f:
                 f.write(old_data)
-        os.system('/usr/bin/systemctl reload nginx')
+        else:
+            os.system('/usr/bin/systemctl reload nginx')
         
         return render_template('added.html', ipadr=ipadr)
 
