@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current allow ip's {{hstnm}}</title>
+</head>
+<body>
+{% for addresses in data %}
+<h4> {{addresses}} </h4>
+{% endfor %}
+<a href="/addip">Добавить адрес к разрешенным</a>
+</body>
+</html>
