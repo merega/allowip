@@ -5,7 +5,7 @@ with open("README.md") as file:
 
 setuptools.setup(
     name="allowip",
-    version="0.1",
+    version="0.2",
     author="Alexandr Chamran",
     author_email="chamran.merega@gmail.com",
     description="Authorized IP management.",
