@@ -37,7 +37,7 @@ def addip():
         else:
             os.system('/usr/bin/systemctl reload nginx')
         
-        return render_template('added.html', ipadr=ipadr)
+        return render_template('added.html', ipadr=ipadr, ngnx=ngnx)
 
 
 if __name__ == '__main__':

@@ -5,7 +5,11 @@
     <title>Added ip</title>
 </head>
 <body>
+    {% if ngnx == 0 %}
 <h3>Адрес {{ ipadr }} добавлен<h3>
+    {% else %}
+<h3>Адрес {{ ipadr }} не корректен, введите другой адрес или диапазон CIDR</h3>
+    {% endif %}
     <br>
     <a href="/addip">Добавить еще адрес</a>
     <br>
