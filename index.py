@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 allow_file = settings.allow_file
 
+
 @app.route('/')
 def showip():
     file = open(allow_file, 'r')
