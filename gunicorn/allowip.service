@@ -6,7 +6,7 @@ After=network.target
 User=root
 Group=www-data
 WorkingDirectory=/srv/allowip
-Environment="PATH=/srv/allowip/venv/bin:$PATH"
+Environment="PATH=/srv/allowip/venv/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin"
 #ExecStart=/srv/allowip/venv/bin/gunicorn --workers 3 --bind unix:/run/allowip.sock -m 007 wsgi:app
 ExecStart=/srv/allowip/venv/bin/gunicorn --workers 3 --bind 127.0.0.1:5000 wsgi:app
 
