@@ -3,13 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Current allow ip's {{hstnm}}</title>
+    <link rel="stylesheet" href='/static/style.css' />
 </head>
 <body>
 <h3>Список разрешенных адресов в {{ allow_file }}</h3>
 <hr>
+<table border="1">
+    <tr>
+        <th>IP</th>
+    </tr>
 {% for addresses in data %}
-<h4> {{addresses}} </h4>
+    <tr>
+        <td> {{addresses}} </td>
+        <td>
+            <form>
+                <label>
+                    <input type="checkbox">
+                </label>
+            </form>
+        </td>
+    </tr>
 {% endfor %}
+</table>
 <a href="/addip">Добавить адрес к разрешенным</a>
 </body>
 </html>
