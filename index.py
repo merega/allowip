@@ -41,6 +41,10 @@ def addip():
         
         return render_template('added.html', ipadr=ipadr, ngnx=ngnx)
 
+@app.route('/help')
+def ip_help():
+    myip = request.environ['REMOTE_ADDR']
+    return render_template('help.html', myip = myip)
 
 if __name__ == '__main__':
     app.run(debug=True)
