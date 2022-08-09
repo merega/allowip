@@ -43,7 +43,7 @@ def addip():
 
 @app.route('/help')
 def ip_help():
-    myip = request.environ['REMOTE_ADDR']
+    myip = request.environ['HTTP_X_FORWARDED_FOR']
     return render_template('help.html', myip = myip)
 
 if __name__ == '__main__':
