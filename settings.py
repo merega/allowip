@@ -1,1 +1,1 @@
-allow_file = '/etc/nginx/allowip.conf'
+allow_file = 'allowip.conf'

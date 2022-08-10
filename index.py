@@ -9,12 +9,11 @@ allow_file = settings.allow_file
 
 @app.route('/')
 def showip():
-    file = open(allow_file, 'r')
-    data = file.read()
-    data = data.split(";")
-    data.pop()
-    # data = l.pop(data)
-    file.close()
+    with open(allow_file, 'r') as file:
+        data = file.read()
+        data = data.split(";")
+        data.pop()
+    # file.close()
     hstnm = subprocess.check_output('hostname')
     #return(data.split(";"))
     return render_template('showip.html', data=data, hstnm = hstnm.decode("utf-8"), allow_file = allow_file)
