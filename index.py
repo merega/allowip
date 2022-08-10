@@ -15,7 +15,7 @@ def showip():
     data.pop()
     # data = l.pop(data)
     file.close()
-    hstnm = subprocess.check_output("hostname")
+    hstnm = subprocess.check_output('hostname')
     #return(data.split(";"))
     return render_template('showip.html', data=data, hstnm = hstnm.decode("utf-8"), allow_file = allow_file)
 
@@ -44,6 +44,10 @@ def addip():
         
         return render_template('added.html', ipadr=ipadr, ngnx=ngnx)
 
+@app.route('/help')
+def ip_help():
+    myip = request.environ['HTTP_X_FORWARDED_FOR']
+    return render_template('help.html', myip = myip)
 
 if __name__ == '__main__':
     app.run(debug=True)

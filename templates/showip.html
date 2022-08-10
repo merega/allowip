@@ -6,7 +6,7 @@
     <link rel="stylesheet" href='/static/style.css' />
 </head>
 <body>
-<h3>Список разрешенных адресов в {{ allow_file }}</h3>
+<h2>Список разрешенных адресов в {{ allow_file }} (<a href="/help">Помощь</a>)</h2>
 <hr>
 <table border="1">
     <tr>
@@ -25,6 +25,7 @@
     </tr>
 {% endfor %}
 </table>
-<a href="/addip">Добавить адрес к разрешенным</a>
+<br>
+<a href="/addip"><h3>Добавить адрес к разрешенным</h3></a>
 </body>
 </html>
