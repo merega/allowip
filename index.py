@@ -18,7 +18,6 @@ def showip():
     #return(data.split(";"))
     return render_template('showip.html', data=data, hstnm = hstnm.decode("utf-8"), allow_file = allow_file)
 
-
 @app.route('/addip')
 def addip_form():
     return render_template('addip.html')
@@ -42,6 +41,25 @@ def addip():
             os.system('systemctl reload nginx')
         
         return render_template('added.html', ipadr=ipadr, ngnx=ngnx)
+
+@app.route('/delip', methods=['POST'])
+def delete_ip():
+    if request.method == 'POST':
+        ipdel = request.form.getlist('delip[]')
+    with open(allow_file, 'r') as file:
+            old_data = file.read()
+            # data = data.split(";")
+    if ipdel:
+        for dlt in ipdel:
+            dlt = dlt.strip()
+            if dlt != 'deny all':
+                new_data = old_data.replace('\n'+dlt+';', '')
+    if new_data:
+        with open(allow_file, 'w') as f:
+            f.write(new_data)
+    return render_template('deleted.html', ipdel = ipdel)
+
+
 
 @app.route('/help')
 def ip_help():
