@@ -39,7 +39,6 @@ def addip():
                 f.write(old_data)
         else:
             os.system('systemctl reload nginx')
-        
         return render_template('added.html', ipadr=ipadr, ngnx=ngnx)
 
 @app.route('/delip', methods=['POST'])
@@ -57,7 +56,7 @@ def delete_ip():
     if new_data:
         with open(allow_file, 'w') as f:
             f.write(new_data)
-    return render_template('deleted.html', ipdel = ipdel)
+    return render_template('deleted.html', ipdel = ipdel, ngnx=ngnx)
 
 
 
